@@ -36,14 +36,13 @@ public class ArrayStorage {
 
     // удаляем резюме с указанным uuid. Если в массиве после удаленного элемента есть другие резюме, перемещаем их в массиве на одну ячейку к началу массива
     void delete(String uuid) {
-        for (int i = 0; i < storage.length; i++) {
+        for (int i = 0; i < size; i++) {
             if (storage[i].uuid.equals(uuid)) {
-                storage[i] = null;
                 while (i + 1 < size) {
                     storage[i] = storage[i + 1];
-                    storage[i + 1] = null;
                     i++;
                 }
+                storage[i] = null;
                 size--;
                 break;
             }
